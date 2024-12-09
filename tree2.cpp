@@ -8,38 +8,26 @@ struct node{
 struct tree{
 	node* root;
 };
-void khoitaotree(tree* tree){
+void khoitaocay(tree* tree){
 	tree->root = NULL;
 }
 bool isEmpty(tree* tree){
 	return (tree->root == NULL);
 }
-void khoitaocay(tree* tree, int data){
-	if(isEmpty){
-		node* newnode = new node;
-		newnode->data = data;
-		newnode->left = NULL;
-		newnode->right = NULL;
-		tree->root = newnode;
-	}
-}
 void themphantu(tree* tree, int data){
 	//neu phan tu them vao < phan tu goc thi them vao trai, con > thi nguoc lai
-	if(isEmpty) return;
+        node* newnode = new node;
+        newnode->data = data;
+        newnode->left = NULL;
+        newnode->right = NULL;
+	if(isEmpty){
+		tree->root = newnode;
 	else{
 		if(data < tree->root->data){
-			node* newnode = new node;
-			newnode->data = data;
-			newnode->left = NULL;
-			newnode->right = NULL;
-			tree->root->left = newnode;
+			themphantu(tree->root->left, data)
 		}
 		else{
-			node* newnode = new node;
-			newnode->data = data;
-			newnode->left = NULL;
-			newnode->right = NULL;
-			tree->root->right = newnode;
+			themphantu(tree->root->right, data)
 		}
 	}
 }
