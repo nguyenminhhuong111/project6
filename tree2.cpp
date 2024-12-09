@@ -22,6 +22,7 @@ void themphantu(tree* tree, int data){
         newnode->right = NULL;
 	if(isEmpty){
 		tree->root = newnode;
+	}
 	else{
 		if(data < tree->root->data){
 			themphantu(tree->root->left, data)
